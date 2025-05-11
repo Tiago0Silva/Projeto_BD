@@ -1,5 +1,4 @@
 import re
-import psycopg2
 
 def checkVar(email, password, NIF, telefone, nome):
     

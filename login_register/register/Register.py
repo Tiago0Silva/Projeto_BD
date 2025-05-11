@@ -1,5 +1,5 @@
 import psycopg2
-from .checkVar import checkVar
+from checkVar.checkVar import checkVar
 
 def Register(cur):
     while True:
@@ -10,7 +10,7 @@ def Register(cur):
         nome = input("Nome: ")
 
         if checkVar(email, password, NIF, telefone, nome):
-            break 
+            break
     print("Registo feito!")
     
     try:

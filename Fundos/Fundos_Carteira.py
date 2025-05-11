@@ -1,9 +1,7 @@
+from .Saldo import Saldo
+from Executes.Execute1 import execute1
 def Fundos_Carteira(cur, id):
-    QuerySal= "SELECT saldo FROM utilizador WHERE id= %s"
-    cur.execute(QuerySal, (id,))
-    saldo= cur.fetchone()
-    sal= saldo[0]
-    print("Saldo: ", sal)
+    Saldo(cur, id)
     try:
         Salmenu=0
         while True:
@@ -21,9 +19,8 @@ def Fundos_Carteira(cur, id):
                     AdFundos = "UPDATE utilizador SET saldo = saldo + %s WHERE id = %s"
                     cur.execute(AdFundos, (valor, id))
                     cur.connection.commit()
-                    
-                    cur.execute(QuerySal, (id,))
-                    novo_saldo = cur.fetchone()[0]
+                    QuerySal = "SELECT saldo FROM utilizador WHERE id= %s"
+                    novo_saldo = execute1(cur, QuerySal, id)
                     print("Novo saldo: ", novo_saldo)
                 except ValueError:
                     print("Por favor, insira um valor numérico válido.")
