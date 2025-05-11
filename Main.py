@@ -1,5 +1,6 @@
 import psycopg2
-from .cliente import cliente
+from cliente import cliente
+from admin import admin
 connect= psycopg2.connect("host=localhost dbname=postgres user=postgres password= postgres")
 cur= connect.cursor()
 
@@ -13,8 +14,8 @@ try:
     tipo= int(input("Escolha: "))
     if tipo == 1:
         cliente(cur)
-    if tipo == 2:            
-        
+    if tipo == 2:
+        admin(cur)
 #menu de opções para admin
 finally:
     cur.close()

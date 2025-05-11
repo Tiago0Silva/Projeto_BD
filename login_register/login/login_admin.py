@@ -4,14 +4,12 @@ def login_admin(cur):
     email= input("Email: ")
     password= input("Password: ")
     
-    QueryNome= "SELECT nome,id FROM administrator WHERE email= %s"
-    QueryID= "SELECT id FROM administrator WHERE email= %s"
-    query = "SELECT * FROM administrator WHERE email= %s AND password= %s"
+    QueryID= "SELECT id FROM administrador WHERE email= %s"
+    query = "SELECT * FROM administrador WHERE email= %s AND password= %s"
 
     result= execute2(cur, query, email, password) is not None    
     if result:
-        Nome= execute1(cur, QueryNome, email)
-        print("Login bem-sucedido!! Bem-vindo, ", Nome[0],)
+        print("Login bem-sucedido!! Bem-vindo, ")
         ID= execute1(cur, QueryID, email)
         
         return ID

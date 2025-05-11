@@ -1,5 +1,5 @@
 from login_register.login.login_cliente import login_cliente
-from login_register.register.Register import Register
+from login_register.register.Register_cliente import Register
 from Fundos.Fundos_Carteira import Fundos_Carteira
 from Informacoes_pessoais.Info_pessoal import Info_pessoal
 from Avisos.notificacao import notificacao
@@ -17,7 +17,6 @@ def cliente(cur):
                 break
             elif Log_Reg == "2":
                 Register(cur)
-                break
             else:
                 print("Opção inválida. Tente novamente.")
 
@@ -38,11 +37,11 @@ def cliente(cur):
                     Info_pessoal(cur, loginId)
                 if opmenu == 2:
                     Fundos_Carteira(cur, loginId) #Adicionar fundos à carteira
-                if opmenu == 3:
+                #if opmenu == 3:
                     #Linhas e horários
                 #if opmenu == 4:
                     #Gerir Bilhetes
-                #if opmenu == 5:
+                if opmenu == 5:
                     ler_avisos(cur, loginId)
                 if opmenu == 6:
                     break
