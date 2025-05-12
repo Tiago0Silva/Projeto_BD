@@ -1,8 +1,8 @@
 import psycopg2
 from cliente import cliente
 from admin import admin
-connect= psycopg2.connect("host=localhost dbname=postgres user=postgres password= postgres")
-cur= connect.cursor()
+conn= psycopg2.connect("host=localhost dbname=postgres user=postgres password= postgres")
+cur= conn.cursor()
 
 #opção do tipo de conta (não deve aceitar email de admin caso a sessáo 
 # escolhida não seja de admin e vice-versa)
@@ -15,8 +15,8 @@ try:
     if tipo == 1:
         cliente(cur)
     if tipo == 2:
-        admin(cur)
+        admin(conn, cur)
 #menu de opções para admin
 finally:
     cur.close()
-    connect.close()
+    conn.close()

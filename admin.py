@@ -2,7 +2,7 @@ from login_register.login.login_admin import login_admin
 from login_register.register.Register_admin import register_admin
 from Avisos.enviar_aviso import enviar_aviso
 from Controlo_linhas.controlo_linhas import controlo_linha
-def admin(cur):
+def admin(conn,cur):
     try:
         Log_Reg=0
         while True:
@@ -31,7 +31,7 @@ def admin(cur):
                 print("0- LogOut")
                 op_menu= int(input("Escolha: "))
                 if op_menu == 2:
-                    controlo_linha(cur)
+                    controlo_linha(conn, cur)
                 if op_menu == 4:
                     enviar_aviso(cur, loginId)
                 if op_menu == 0:
