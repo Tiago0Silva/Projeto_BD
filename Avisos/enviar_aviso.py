@@ -1,9 +1,12 @@
-from Executes.Execute3 import execute3
-from datetime import datetime
-
-def enviar_aviso(cur, id):
-    print("Escreva o seu aviso:")
-    aviso= input("")
-    data_hora = datetime.now()
-    QueryAviso= "INSERT INTO aviso(data_hora, mensagem, administrador_id) VALUES (%s ,%s, %s)"
-    execute3(cur,QueryAviso, data_hora, aviso, id)
+def enviar_aviso(conn, cur, id):
+    aviso= input("Escreva o seu aviso: ")
+    QueryAviso= "INSERT INTO aviso(aviso, administrador_id) VALUES (%s ,%s)"
+    try:
+        cur.execute(QueryAviso, (aviso, id))
+        conn.commit()
+        print("")
+        print("Aviso enviado com sucesso.")
+        print("")
+    except Exception as e:
+        conn.rollback()
+        print("Erro ao enviar o aviso:", e)

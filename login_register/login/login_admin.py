@@ -11,7 +11,6 @@ def login_admin(cur):
     if result:
         print("Login bem-sucedido!! Bem-vindo, ")
         ID= execute1(cur, QueryID, email)
-        
         return ID
     else:
         print("Email ou password incorretos. Tente novamente.")

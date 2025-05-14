@@ -29,7 +29,7 @@ def cliente(cur):
                 print("2- Carteira")# :)
                 print("3- Linhas e horários") #todas as linhas e horários disponíveis e filtrar os mesmos e adquirir bilhetes ou passes
                 print("4- Gerir bilhetes") #ver todos os bilhetes comprados e altertar o estado para usado gerir/cancelar bilhetes/passes
-                print("5- Avisos", notificacao(cur))
+                print("5- Avisos", notificacao(cur)) #:)
                 print("6- LogOut")# :)
                 opmenu=int(input("Escolha..."))
     #opcao de alterar/adicionar informações pessoais
@@ -45,13 +45,5 @@ def cliente(cur):
                     ler_avisos(cur, loginId)
                 if opmenu == 6:
                     break
-    #Consultar todas as linhas e horários disponíveis.
-    #Filtrar horários por data, período do dia e linha específica. 
-    #Usar Bilhete: opção para o cliente indicar que usou o bilhete
-    #Consultar os diferentes tipos de bilhetes e passes disponíveis, incluindo preços e condições.
-    #Adquirir bilhetes ou passes
-    #Gerir/cancelar bilhetes/passes dentro das condições permitidas pela política da empresa.
-    #Consultar histórico de viagens e bilhetes/passes adquiridos. 
-    #Aceder a avisos
         except Exception as e:
             print("Ocorreu um erro: ", e)
