@@ -1,7 +1,6 @@
 from .Visualizar_horarios_linha import visualizar_horarios_linha
 from .Alterar_horario_ativo import alterar_horario_ativo
 from .Editar_horario import editar_horario
-#from Editar_horario import editar_horario
 def controlo_linha(conn, cur):
     #ver todos os horários de linha
     try:
@@ -14,7 +13,7 @@ def controlo_linha(conn, cur):
             if op == 1:
                 alterar_horario_ativo(conn, cur)
             if op == 2:
-               editar_horario(conn, cur) #so mostra horarios ativos e opcao de os alterar
+                editar_horario(conn, cur) #so mostra horarios ativos e opcao de os alterar
             if op == 0:
                 break
     except Exception as e:

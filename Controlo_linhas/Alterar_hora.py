@@ -1,6 +1,6 @@
 from .Visualizar_tabela import visualizar_tabela
 
-def alterar_hora(cur, linha):
+def alterar_hora(conn, cur, linha):
     Query_linhas = "SELECT abertura, fecho, frequencia, horario_impl FROM linha_freq WHERE id_linha = %s AND horario_impl = TRUE"
     cur.execute(Query_linhas, (linha,))
     resultados = cur.fetchall()
@@ -21,6 +21,7 @@ def alterar_hora(cur, linha):
                     SET abertura = %s
                     WHERE id_linha = %s AND horario_impl = TRUE
                 """, (nova_abertura_completa, linha))
+                conn.commit()
                 print("Hora de entrada atualizada com sucesso.")
 
             elif alt == 2:
@@ -31,12 +32,12 @@ def alterar_hora(cur, linha):
                     SET fecho = %s
                     WHERE id_linha = %s AND horario_impl = TRUE
                 """, (novo_fecho_completo, linha))
+                conn.commit()
                 print("Hora de saída atualizada com sucesso.")
 
             elif alt == 0:
                 print("A sair da edição de horários.")
                 break
-
     except Exception as e:
         print("Ocorreu um erro: ", e)
 

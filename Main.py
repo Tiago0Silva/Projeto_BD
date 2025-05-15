@@ -13,7 +13,7 @@ try:
     print("2- Admin")
     tipo= int(input("Escolha: "))
     if tipo == 1:
-        cliente(cur)
+        cliente(conn, cur)
     if tipo == 2:
         admin(conn, cur)
 #menu de opções para admin

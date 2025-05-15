@@ -5,4 +5,4 @@ def check_NIF(cur, id, NIF):
     else:
         Alt_NIF= "UPDATE utilizador SET nif = %s WHERE id= %s"
         cur.execute(Alt_NIF, (NIF, id))
-        return True 
+        return True
