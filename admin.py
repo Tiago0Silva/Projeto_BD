@@ -18,7 +18,7 @@ def admin(conn,cur):
                 loginId= login_admin(cur)
                 break
             elif Log_Reg == "2":
-                register_admin(cur)
+                register_admin(conn, cur)
                 break
             else:
                 print("Opção inválida. Tente novamente.")

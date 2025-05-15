@@ -13,12 +13,8 @@ def controlo_linha(conn, cur):
             if op == 1:
                 alterar_horario_ativo(conn, cur)
             if op == 2:
-                editar_horario(conn, cur) #so mostra horarios ativos e opcao de os alterar
+                editar_horario(conn, cur)
             if op == 0:
                 break
     except Exception as e:
             print("Ocorreu um erro: ", e)
-
-    #escolher entre os dois tipos de horários para a linha 3 
-    #poder editar os horários existentes
-    

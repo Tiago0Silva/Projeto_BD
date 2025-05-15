@@ -1,7 +1,6 @@
 from .Visualizar_tabela import visualizar_tabela
 from .Escolher_horario import escolher_horario
 from .Visualizar_horarios_linha import visualizar_horarios_linha
-from Limpar_cursor.limpar_cursor import limpar_cursor
 def alterar_horario_ativo(conn, cur):
     Query_linha1 = "SELECT abertura, fecho, frequencia, id_linha, horario_impl FROM linha_freq WHERE id_linha= 1"
     Query_linha2 = "SELECT abertura, fecho, frequencia, id_linha, horario_impl FROM linha_freq WHERE id_linha= 2"
@@ -32,7 +31,6 @@ def alterar_horario_ativo(conn, cur):
                 cur.execute(Query_linha3)
                 resultados3= cur.fetchall()
                 visualizar_tabela(cur, resultados3)
-                limpar_cursor(cur)
                 escolher_horario(conn, cur, linha)
                 visualizar_horarios_linha(cur)
                 break

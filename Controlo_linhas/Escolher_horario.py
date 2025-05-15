@@ -7,7 +7,6 @@ def escolher_horario(conn, cur, linha_id):
     escolha = int(input("Selecione: "))
 
     if escolha == 1:
-        # Ativar os 2 primeiros (IDs 3 e 4 por exemplo)
         try:
             cur.execute("UPDATE linha_freq SET horario_impl = FALSE WHERE id_linha = 3")
             conn.commit()
@@ -19,7 +18,6 @@ def escolher_horario(conn, cur, linha_id):
             conn.rollback()
         
     elif escolha == 2:
-        # Ativar os 2 últimos (IDs 5 e 6 por exemplo)
         try:
             cur.execute("UPDATE linha_freq SET horario_impl = FALSE WHERE id_linha = 3")
             conn.commit()
@@ -34,7 +32,5 @@ def escolher_horario(conn, cur, linha_id):
     ids = [row[0] for row in cur.fetchall()]
     cur.execute("SELECT id FROM linha__trecho WHERE id_linha= %s", (linha_id,))
     linha_trecho_id= [row[0] for row in cur.fetchall()]  
-    # Gerar os horários com base nesses dois IDs
-    print(ids)
     for id_horario in ids:
         gerar_horarios(conn, cur, id_horario, linha_trecho_id)

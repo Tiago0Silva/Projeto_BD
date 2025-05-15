@@ -1,7 +1,7 @@
 import psycopg2
 from checkVar.checkVar import checkVar
 
-def register_admin(cur):
+def register_admin(conn,cur):
     while True:
         email = input("Email: ")
         password = input("Password: ")
@@ -13,6 +13,6 @@ def register_admin(cur):
     try:
         query= "INSERT INTO administrator (email, password) VALUES (%s, %s)"
         cur.execute(query, (email, password))
-        cur.connection.commit()
+        conn.commit()
     except psycopg2.Error as e:
         print("Erro ao registar no banco de dados: ", e)

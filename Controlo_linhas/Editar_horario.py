@@ -22,4 +22,4 @@ def editar_horario(conn, cur):
             for linha_trecho_id in ids:
                 gerar_horarios(conn, cur, linha, linha_trecho_id)
         else:
-            print("❌ Opção inválida.")
+            print("Opção inválida.")

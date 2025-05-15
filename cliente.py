@@ -17,7 +17,7 @@ def cliente(conn, cur):
                 loginId= login_cliente(cur)
                 break
             elif Log_Reg == "2":
-                Register(cur)
+                Register(conn, cur)
             else:
                 print("Opção inválida. Tente novamente.")
 
@@ -37,7 +37,7 @@ def cliente(conn, cur):
                 if opmenu == 1:
                     Info_pessoal(cur, loginId)
                 if opmenu == 2:
-                    Fundos_Carteira(cur, loginId)
+                    Fundos_Carteira(conn, cur, loginId)
                 if opmenu == 3:
                     comprar_bilhete_passe(conn, cur, loginId)
                 #if opmenu == 4:
