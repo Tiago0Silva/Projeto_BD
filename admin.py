@@ -5,6 +5,8 @@ from Controlo_linhas.controlo_linhas import controlo_linha
 from Precario.Analise_precario import analise_precario
 from Gerir_Admins.Verifica_super import verifica_super
 from Gerir_Admins.Gerir_admins import gerir_admins
+from Gestao_bilhetes_cliente.Reembolsos_cancelamentos import reembolsos_cancelamentos
+from Gestao_bilhetes_cliente.Notificacao_cancelamentos import notificacao_cancelamentos
 def admin(conn,cur):
     
     try:
@@ -30,9 +32,10 @@ def admin(conn,cur):
                 print("2- Preçario") #:)
                 print("3- Enviar Aviso") #:)
                 print("4- Enviar mensagem")
-                print("5- Estatísticas e Relatórios")
+                print("5- Reembolsos e cancelamentos", notificacao_cancelamentos(cur)) #:)
+                print("6- Estatísticas e Relatórios")
                 if verifica_super(cur, loginId):
-                    print("6- Gerir Permissões") #:)
+                    print("7- Gerir Permissões") #:)
                 print("0- LogOut") #:)
                 op_menu= int(input("Escolha: "))
                 
@@ -42,7 +45,9 @@ def admin(conn,cur):
                     analise_precario(cur)
                 if op_menu == 3:
                     enviar_aviso(conn, cur, loginId)
-                if op_menu == 6 and verifica_super(cur, loginId):
+                if op_menu == 5:
+                    reembolsos_cancelamentos(conn, cur)
+                if op_menu == 7 and verifica_super(cur, loginId):
                     gerir_admins(conn, cur)
                 if op_menu == 0:
                     break

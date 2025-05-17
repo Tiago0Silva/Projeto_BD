@@ -5,6 +5,7 @@ from Informacoes_pessoais.Info_pessoal import Info_pessoal
 from Avisos.notificacao import notificacao
 from Avisos.ler_avisos import ler_avisos
 from Gestao_bilhetes_cliente.Compra_bilhete_passe import comprar_bilhete_passe
+from Gestao_bilhetes_cliente.Gerir_bilhetes import gerir_bilhetes
 def cliente(conn, cur):
     try:
         Log_Reg=0
@@ -21,15 +22,14 @@ def cliente(conn, cur):
             else:
                 print("Opção inválida. Tente novamente.")
 
-#menu de opções para cliente
     finally:
         try:
             opmenu= 0
             while True:
                 print("1- Informações pessoais")# :)
                 print("2- Carteira")# :)
-                print("3- Comprar bilhetes/passes") #todas as linhas e horários disponíveis e filtrar os mesmos e adquirir bilhetes ou passes
-                print("4- Gerir bilhetes e passes") #ver todos os bilhetes comprados e altertar o estado para usado gerir/cancelar bilhetes/passes
+                print("3- Comprar bilhetes/passes") #:)
+                print("4- Gerir bilhetes e passes") #:)
                 print("5- Avisos", notificacao(cur)) #:)
                 print("0- LogOut")# :)
                 opmenu=int(input("Escolha..."))
@@ -40,8 +40,8 @@ def cliente(conn, cur):
                     Fundos_Carteira(conn, cur, loginId)
                 if opmenu == 3:
                     comprar_bilhete_passe(conn, cur, loginId)
-                #if opmenu == 4:
-                    #Gerir Bilhetes
+                if opmenu == 4:
+                    gerir_bilhetes(conn, cur, loginId)
                 if opmenu == 5:
                     ler_avisos(cur, loginId)
                 if opmenu == 0:
